@@ -1,5 +1,3 @@
-from __future__ import absolute_import, unicode_literals
-
 from celery.canvas import chain as celery_chain
 
 from celery_growthmonitor import settings

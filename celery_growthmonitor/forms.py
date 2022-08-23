@@ -2,7 +2,7 @@ import importlib
 from abc import ABCMeta
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 crispy_forms = importlib.util.find_spec("crispy_forms")
 if crispy_forms:
@@ -14,7 +14,7 @@ class ACrispyJobForm(forms.ModelForm):
     __metaclass__ = ABCMeta
 
     def __init__(self, *args, fix_initial=[], **kwargs):
-        super(ACrispyJobForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         for field in fix_initial:
             if "instance" in kwargs and not (
                 "initial" in kwargs and field in kwargs["initial"]
@@ -33,7 +33,7 @@ class ACrispyJobSubmissionForm(forms.Form):
     # TODO if needed: use identifier from CombineJob
 
     def __init__(self, *args, add_honeypot=False, **kwargs):
-        super(ACrispyJobSubmissionForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if crispy_forms:
             self.helper = FormHelper()
             self.helper.form_tag = False

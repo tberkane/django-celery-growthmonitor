@@ -6,7 +6,7 @@ from .apps import CeleryGrowthMonitorConfig as appConfig
 
 TTL = getattr(
     django_settings,
-    "{}_TTL".format(appConfig.name.upper()),
+    f"{appConfig.name.upper()}_TTL",
     getattr(django_settings, "CELERY_TASK_RESULT_EXPIRES", timedelta(10)),
 )  # 10 days
 if not isinstance(TTL, timedelta):
@@ -21,5 +21,5 @@ Time to live. After that time, jobs should be dropped from file system.
 
 # Custom prefix in the media root folder
 APP_MEDIA_ROOT = getattr(
-    django_settings, "{}_MEDIA_ROOT".format(appConfig.name.upper()), ""
+    django_settings, f"{appConfig.name.upper()}_MEDIA_ROOT", ""
 )

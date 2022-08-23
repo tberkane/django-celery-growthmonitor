@@ -3,7 +3,7 @@ from abc import ABCMeta
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class AJobAdmin(admin.ModelAdmin):
@@ -73,6 +73,6 @@ class HasJobAdminMixin:
             ),
             args=(obj.job.pk,),
         )
-        return format_html('<a href="%s">%s</a>' % (url, self.render_job(obj)))
+        return format_html('<a href="{}">{}</a>'.format(url, self.render_job(obj)))
 
     job_link.short_description = job_label

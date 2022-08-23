@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 django-celery-growthmonitor, a Django helper to monitor jobs running Celery tasks.
 Copyright (C) 2017  Marc BOURQUI
@@ -22,9 +21,9 @@ __license__ = "GNU GPLv3 <https://www.gnu.org/licenses/gpl-3.0.html>"
 __author__ = "Marc Bourqui <pypi.kemar@bourqui.org>"
 __version__ = "1.1.0"
 __version_info__ = tuple(
-    [
+    
         int(num) if num.isdigit() else num
         for num in __version__.replace("-", ".", 1).split(".")
-    ]
+    
 )
 __status__ = "5 - Production/Stable"
